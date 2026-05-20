@@ -17,7 +17,7 @@ def process_and_alert():
     df = pd.read_excel(file_path, engine='openpyxl')
     
     # Ensure specific column formatting is clean
-    df['DeprecationDate'] = pd.to_datetime(df['DeprecationDate']).dt.date
+    df['DepreciationDate'] = pd.to_datetime(df['DepreciationDate']).dt.date
     df['Notified'] = df['Notified'].fillna('').astype(str).str.strip()
     df['RecipientEmail'] = df['RecipientEmail'].fillna('').astype(str).str.strip()
 
@@ -27,7 +27,7 @@ def process_and_alert():
     
     # Filter for target dates where alerts haven't been sent yet
     critical_records = df[
-        (df['DeprecationDate'] == target_date) & 
+        (df['DepreciationDate'] == target_date) & 
         (df['Notified'] != 'Yes') &
         (df['RecipientEmail'] != '')
     ]
@@ -51,7 +51,7 @@ def process_and_alert():
     
     for email_recipient, group in grouped:
         # Convert matching records for this user into a clean HTML table
-        display_cols = ['Model', 'SubModule', 'DeprecationDate']
+        display_cols = ['Model', 'SubModule', 'DepreciationDate']
         table_html = group[display_cols].to_html(index=False, classes='styled-table')
         
         # Build styled HTML email headers correctly
