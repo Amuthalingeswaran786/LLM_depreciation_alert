@@ -3,8 +3,9 @@ name: Daily LLM Deprecation Monitor
 on:
   schedule:
     # Triggers daily at exactly 9:00 AM local time in New York
-    - cron: '0 9 * * *'
-      timezone: 'America/New_York'
+    # - cron: '0 9 * * *'
+    - cron: '40 19 * * *' 
+      timezone: 'Asia/Kolkata'
   workflow_dispatch: # Allows you to manually trigger the script anytime
 
 jobs:
