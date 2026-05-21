@@ -3,7 +3,7 @@ name: Daily LLM Deprecation Monitor
 on:
   schedule:
     # Runs every weekday (Mon-Fri) at 9:00 AM IST (3:30 AM UTC)
-    - cron: '52 16 * * 1-5'
+    - cron: '00 13 * * 1-5'
   workflow_dispatch: # Allows manual trigger anytime
 
 jobs:
